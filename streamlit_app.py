@@ -61,6 +61,11 @@ def calculate_speed_safe(distance, minutes, seconds):
         speed = 0
     return speed, total_seconds
 
+def calculate_pace(total_seconds, distance_meters):
+        pace_seconds_per_km = total_seconds / (distance_meters / 1000)
+        minutes, seconds = divmod(pace_seconds_per_km, 60)
+        return f"{int(minutes)} min {int(seconds):02d} s / km"
+
 results = {}
 total_seconds = {}
 speeds = {}
@@ -81,6 +86,9 @@ if 0 not in total_seconds:
             st.write(total_seconds)
             cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
             st.write(cs)
+
+            st.write(f"Vitesse Critique : {cs:.2f} m/s, {(speed * 3.6):.2f} km/h")
+            st.write(f"Allure : {calculate_pace(1, cs)}")
 else:
             st.warning("Insère des temps non nuls pour les deux tests.")
 
