@@ -78,7 +78,7 @@ for distance_text, distance_meters in zip(distances_test.keys(), distances_test.
             speeds.append(speed) 
 
 if 0 not in total_seconds:
-            st.write(total_secondes)
+            st.write(total_seconde)
 else:
             st.warning("Insère des temps non nuls pour les deux tests.")
 
