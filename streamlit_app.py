@@ -87,7 +87,7 @@ if 0 not in total_seconds:
             cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
 
             st.write(f"Vitesse Critique : {cs:.2f} m/s, {(speed * 3.6):.2f} km/h")
-            st.write(f"Allure : {calculate_pace(1, cs)}")
+            st.write(f"Allure Critique : {calculate_pace(1, cs)}")
 else:
             st.warning("Insère des temps non nuls pour les deux tests.")
 
