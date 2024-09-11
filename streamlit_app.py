@@ -83,9 +83,6 @@ for distance_text, distance_meters in zip(distances_test.keys(), distances_test.
             speeds[distance_text] = speed
 
 if 0 not in total_seconds:
-            st.write(total_seconds)
-            cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
-            st.write(cs)
 
             st.write(f"Vitesse Critique : {cs:.2f} m/s, {(speed * 3.6):.2f} km/h")
             st.write(f"Allure : {calculate_pace(1, cs)}")
