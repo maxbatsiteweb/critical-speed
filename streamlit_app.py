@@ -49,16 +49,12 @@ distances_test = {
     "3600 mètres": 3600,
 }
 
-# Fonction pour calculer la vitesse en m/s
-def calculate_speed(distance, hours, minutes, seconds):
-    total_seconds = hours * 3600 + minutes * 60 + seconds
-    speed = distance / total_seconds
-    return speed, total_seconds
+
 
 
 # Vérification avant de calculer les vitesses
-def calculate_speed_safe(distance, hours, minutes, seconds):
-    total_seconds = hours * 3600 + minutes * 60 + seconds
+def calculate_speed_safe(distance, minutes, seconds):
+    total_seconds = minutes * 60 + seconds
     if total_seconds > 0:
         speed = distance / total_seconds
     else:
@@ -77,8 +73,8 @@ for distance_text, distance_meters in zip(distances_test.keys(), distances_test.
             with col2:
                         seconds = st.number_input(f"Secondes", min_value=0, max_value=59, value=0, key=f"{distance_meters}_seconds")
             results[distance_text] = (minutes, seconds)
-            speed, seconds_race = calculate_speed_safe(distance, hours, minutes, seconds)
-            total_seconds.append(seconds_race)
+            speed, seconds_test = calculate_speed_safe(distance_meters, minutes, seconds)
+            total_seconds.append(seconds_test)
             speeds.append(speed) 
 
 if 0 not in total_seconds:
