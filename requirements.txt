@@ -1,1 +1,7 @@
 streamlit
+matplotlib
+scipy
+scikit-learn
+plotly
+kaleido
+streamlit-javascript
