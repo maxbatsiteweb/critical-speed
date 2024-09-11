@@ -79,8 +79,7 @@ for distance_text, distance_meters in zip(distances_test.keys(), distances_test.
 
 if 0 not in total_seconds:
             st.write(total_seconds)
-            st.write(results["3600 mètres"])
-            cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["3600 mètres"])/(3600/1200 - 1))
+            cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
             st.write(cs)
 else:
             st.warning("Insère des temps non nuls pour les deux tests.")
