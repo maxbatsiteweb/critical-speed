@@ -63,7 +63,7 @@ def calculate_speed_safe(distance, minutes, seconds):
 
 results = {}
 total_seconds = {}
-speeds = []
+speeds = {}
 for distance_text, distance_meters in zip(distances_test.keys(), distances_test.values()):
             st.write(f"**{distance_text}**")
                                             
