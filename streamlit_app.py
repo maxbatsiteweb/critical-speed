@@ -104,8 +104,8 @@ if 0 not in list(total_seconds.values()):
                                     percentage /= 100
 
                                     percent_cs = percentage * cs
-                                    st.write(f"{percentage} % de Vitesse Critique : {percent_cs:.2f} m/s, {(percent_cs * 3.6):.2f} km/h")
-                                    st.write(f"{percentage} % d'Allure Critique : {calculate_pace(1, percent_cs)}")
+                                    st.write(f"{percentage*100} % de Vitesse Critique : {percent_cs:.2f} m/s, {(percent_cs * 3.6):.2f} km/h")
+                                    st.write(f"{percentage*100} % d'Allure Critique : {calculate_pace(1, percent_cs)}")
 
 
                         
