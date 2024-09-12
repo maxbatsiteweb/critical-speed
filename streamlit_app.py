@@ -84,10 +84,35 @@ for distance_text, distance_meters in zip(distances_test.keys(), distances_test.
 
 if 0 not in list(total_seconds.values()):
 
-            cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
+            if list(total_seconds.values())[0] != list(total_seconds.values())[1]:
 
-            st.write(f"Vitesse Critique : {cs:.2f} m/s, {(speed * 3.6):.2f} km/h")
-            st.write(f"Allure Critique : {calculate_pace(1, cs)}")
+                         if list(total_seconds.values())[0] > list(total_seconds.values())[1]:
+
+
+                                    cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
+
+                                    st.write(f"**Résultats des tests**")
+                                    st.write(f"Vitesse Critique : {cs:.2f} m/s, {(cs * 3.6):.2f} km/h")
+                                    st.write(f"Allure Critique : {calculate_pace(1, cs)}")
+
+                                    st.write(f"**% de Vitesse Critique pour ton entraînement**")
+
+                                    pourcentage = st.slider('Choisissez un pourcentage', min_value=0, max_value=100, step=1)
+
+                                    st.write("A {pourcentage}%")
+                                    percent_cs = percentage * cs
+                                    st.write(f"% Vitesse Critique : {percent_cs:.2f} m/s, {(percent_cs * 3.6):.2f} km/h")
+                                    st.write(f"% Allure Critique : {calculate_pace(1, percent_cs)}")
+
+
+                        
+                                    
+
+                         else:
+                                    st.warning("Le temps de ton test sur 1200 mètres doit être inféreur au temps sur 3600 mètres")
+                                     
+            else:
+                        st.warning("Insère des temps différents pour les deux courses")
 else:
             st.warning("Insère des temps non nuls pour les deux tests.")
 
