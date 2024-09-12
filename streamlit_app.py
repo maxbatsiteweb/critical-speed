@@ -91,15 +91,20 @@ if 0 not in list(total_seconds.values()):
 
                                     cs = 1200 / (total_seconds["1200 mètres"] + (total_seconds["3600 mètres"] - (3600/1200)*total_seconds["1200 mètres"])/(3600/1200 - 1))
 
+                                    st.write()
+                                    st.write() 
                                     st.write(f"**Résultats des tests**")
                                     st.write(f"Vitesse Critique : {cs:.2f} m/s, {(cs * 3.6):.2f} km/h")
                                     st.write(f"Allure Critique : {calculate_pace(1, cs)}")
 
+
+                                    st.write()
+                                    st.write()  
                                     st.write(f"**% de Vitesse Critique pour ton entraînement**")
 
                                     percentage = st.slider('Choisissez un pourcentage', min_value=1, max_value=100, step=1)
+                                    percentage /= 100
 
-                                    st.write(f"A ")
                                     percent_cs = percentage * cs
                                     st.write(f"{percentage} % de Vitesse Critique : {percent_cs:.2f} m/s, {(percent_cs * 3.6):.2f} km/h")
                                     st.write(f"{percentage} % d'Allure Critique : {calculate_pace(1, percent_cs)}")
