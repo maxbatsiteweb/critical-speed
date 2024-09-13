@@ -100,7 +100,7 @@ if 0 not in list(total_seconds.values()):
                                     st.markdown("---")
                                     st.write(f"**% de Vitesse Critique pour ton entraînement**")
 
-                                    percentage = st.slider('', min_value=50, max_value=100, step=1)
+                                    percentage = st.slider('', min_value=50, max_value=150, step=1)
                                     percentage /= 100
 
                                     percent_cs = percentage * cs
